@@ -82,7 +82,7 @@ module.exports = {
         normal: '0',
         wide: '0.01em',
         wider: '0.02em',
-        widest: '0.4em',
+        widest: '62px',
       },
       lineHeight: {
         none: '1',

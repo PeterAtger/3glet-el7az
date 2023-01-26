@@ -1,4 +1,4 @@
-import {AlignText} from './constants';
+import { AlignText } from './constants';
 import image from '../assets/example-0-image.svg'
 import overlayImage from '../assets/example-0-overlay.svg'
 
@@ -6,7 +6,7 @@ export default [
   {
     name: 'Workout',
     radius: 0.84,
-    itemLabelRadius: 0.93,
+    itemLabelRadius: 0.82,
     itemLabelRadiusMax: 0.35,
     itemLabelRotation: 180,
     itemLabelAlign: AlignText.left,
@@ -16,55 +16,42 @@ export default [
     itemLabelFontSizeMax: 55,
     lineWidth: 1,
     lineColor: '#fff',
-    itemBackgroundColors: ['#ffc93c', '#66bfbf', '#a2d5f2', '#515070', '#43658b', '#ed6663', '#d54062' ],
+    itemBackgroundColors: ['#ffc93c', '#66bfbf', '#a2d5f2', '#515070', '#43658b', '#ed6663', '#d54062', '#515070'],
     image,
     overlayImage,
     items: [
       {
-        label: 'TWISTS',
+        label: 'كتاب مقدس 1',
+        id: '1'
       },
       {
-        label: 'PRESS UPS',
+        label: 'تاريخ كنيسة 1',
+        id: '2'
       },
       {
-        label: 'JOGGING',
+        label: 'رياضة 1',
+        id: '3'
       },
       {
-        label: 'SQUATS',
+        label: 'كتاب مقدس 2',
+        id: '4'
       },
       {
-        label: 'PLANKS',
+        label: 'تاريخ كنيسة 2',
+        id: '5'
       },
       {
-        label: 'LUNGES',
+        label: 'رياضة 2',
+        id: '6'
       },
       {
-        label: 'BURPIES',
+        label: 'كتاب مقدس 3',
+        id: '7'
       },
       {
-        label: 'CRUNCHES',
-      },
-      {
-        label: 'MOUNT. CLIMB',
-      },
-      {
-        label: 'STAR JUMPS',
-      },
-      {
-        label: 'KANGAROOS',
-      },
-      {
-        label: 'ROPE CLIMB',
-      },
-      {
-        label: 'KICK BOXING',
-      },
-      {
-        label: 'WALL SIT',
-      },
+        label: 'بطاركة',
+        id: '8'
+      }
     ],
-    onRest: ()=>{
-      window.alert('Fuck off');
-    }
   }
 ];

@@ -7,17 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3glet el7az - Anbya</title>
     <meta name="description" content="The pre-render recacher you've always dreamt of. ">
-    <!-- <link rel="apple-touch-icon" sizes="180x180" href="./src/assets/favicon_io/apple-touch-icon.png"> -->
-    <!-- <link rel="icon" type="image/png" sizes="32x32" href="./src/assets/favicon_io/favicon-32x32.png"> -->
-    <!-- <link rel="icon" type="image/png" sizes="16x16" href="./src/assets/favicon_io/favicon-16x16.png"> -->
 </head>
 
 <body id="root">
     <div class="flex flex-row min-h-screen overflow-hidden">
-        <div class="bg-gray-200 h-screen w-screen"></div>
-        <div class="bg-gray-600 h-screen w-screen flex items-stretch">
-
+        <div class="bg-gray-200 h-screen w-screen flex justify-center items-center">
+            <div class="relative">
+                <img src="./src/assets/puzzle.jpeg" alt="puzzle">
+                <div class="absolute  text-2xl top-5 left-10 tracking-widest">كلمةجمييلة</div>
+            </div>
+        </div>
+        <div class="bg-gray-200 h-screen w-screen ">
             <div class="wheel-wrapper h-full w-full"></div>
+        </div>
+    </div>
+
+
+
+    <div id="modal" class="hidden">
+        <div class="absolute top-0 h-screen w-screen flex justify-center items-center opacity-50 bg-black"></div>
+        <div class="absolute top-0 h-screen w-screen flex justify-center items-center">
+            <div class="h-80 w-1/2 bg-white rounded-xl p-16 flex justify-center items-center flex-col">
+                <div class="m-16 flex flex-col justify-center items-center">
+                    <div id="message" class="text-xl"></div>
+                    <div id="messageContent" class="text-4xl text-red-500"></div>
+                </div>
+                <button id="closeModal" class="bg-red-500 px-8 py-2 rounded-xl"> الحل </button>
+            </div>
 
         </div>
     </div>

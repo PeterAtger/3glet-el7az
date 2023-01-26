@@ -1,8 +1,8 @@
 import * as util from './util.js';
 import * as Constants from './constants.js';
-import {Defaults} from './constants.js';
+import { Defaults } from './constants.js';
 import * as events from './events.js';
-import {Item} from './item.js';
+import { Item } from './item.js';
 
 export class Wheel {
 
@@ -95,10 +95,10 @@ export class Wheel {
 
     // Get the smallest dimension of `canvasContainer`:
     const [w, h] = [
-      this.canvasContainer.clientWidth * this.getActualPixelRatio(), 
+      this.canvasContainer.clientWidth * this.getActualPixelRatio(),
       this.canvasContainer.clientHeight * this.getActualPixelRatio(),
     ];
-    
+
     // Calc the size that the wheel needs to be to fit in it's container:
     const minSize = Math.min(w, h);
     const wheelSize = {
@@ -200,7 +200,7 @@ export class Wheel {
         // Fall back to a value from the repeating set:
         this.itemBackgroundColors[i % this.itemBackgroundColors.length]
       );
-      
+
       ctx.fill(item.path);
 
     }
@@ -409,7 +409,7 @@ export class Wheel {
 
   }
 
-  animateRotation (now = 0) {
+  animateRotation(now = 0) {
 
     if (this.rotationSpeed !== 0) {
 
@@ -436,7 +436,7 @@ export class Wheel {
 
   }
 
-  getRotationSpeedPlusDrag (delta = 0) {
+  getRotationSpeedPlusDrag(delta = 0) {
 
     // Simulate drag:
     const newRotationSpeed = this.rotationSpeed + (this.rotationResistance * (delta / 1000)) * this._rotationDirection;
@@ -469,7 +469,7 @@ export class Wheel {
    * Return the scaled border size.
    */
   getActualBorderWidth() {
-     return (this.borderWidth / Constants.baseCanvasSize) * this.size;
+    return (this.borderWidth / Constants.baseCanvasSize) * this.size;
   }
 
   getActualPixelRatio() {
@@ -479,7 +479,7 @@ export class Wheel {
   /**
    * Return true if the given point is inside the wheel.
    */
-  wheelHitTest(point = {x:0, y:0}) {
+  wheelHitTest(point = { x: 0, y: 0 }) {
     const p = util.translateXYToElement(point, this.canvas, this.getActualPixelRatio());
     return util.isPointInCircle(p, this.center.x, this.center.y, this.actualRadius);
   }
@@ -508,7 +508,7 @@ export class Wheel {
    * Get the angle (in degrees) of the given point from the center of the wheel.
    * 0 is north.
    */
-  getAngleFromCenter(point = {x:0, y:0}) {
+  getAngleFromCenter(point = { x: 0, y: 0 }) {
     return (util.getAngle(this.center.x, this.center.y, point.x, point.y) + 90) % 360;
   }
 
@@ -593,7 +593,7 @@ export class Wheel {
   /**
    * The color of the line around the circumference of the wheel.
    */
-  get borderColor () {
+  get borderColor() {
     return this._borderColor;
   }
   set borderColor(val) {
@@ -608,7 +608,7 @@ export class Wheel {
   /**
    * The width (in pixels) of the line around the circumference of the wheel.
    */
-  get borderWidth () {
+  get borderWidth() {
     return this._borderWidth;
   }
   set borderWidth(val) {
@@ -624,7 +624,7 @@ export class Wheel {
    * Show debugging info.
    * This is particularly helpful when fine-tuning labels.
    */
-  get debug () {
+  get debug() {
     return this._debug;
   }
   set debug(val) {
@@ -640,7 +640,7 @@ export class Wheel {
    * The url of an image that will be drawn over the center of the wheel which will rotate with the wheel.
    * It will be automatically scaled to fit `radius`.
    */
-  get image () {
+  get image() {
     return this._image;
   }
   set image(val) {
@@ -657,7 +657,7 @@ export class Wheel {
   /**
    * Allow the user to spin the wheel using click-drag/touch-flick.
    */
-  get isInteractive () {
+  get isInteractive() {
     return this._isInteractive;
   }
   set isInteractive(val) {
@@ -674,7 +674,7 @@ export class Wheel {
    * Overridden by `Item.backgroundColor`.
    * Example: `['#fff','#000']`.
    */
-  get itemBackgroundColors () {
+  get itemBackgroundColors() {
     return this._itemBackgroundColors;
   }
   set itemBackgroundColors(val) {
@@ -691,7 +691,7 @@ export class Wheel {
    * Accepted values: `'left'`|`'center'`|`'right'`.
    * You may need to set `itemLabelRotation` in combination with this.
    */
-  get itemLabelAlign () {
+  get itemLabelAlign() {
     return this._itemLabelAlign;
   }
   set itemLabelAlign(val) {
@@ -706,7 +706,7 @@ export class Wheel {
   /**
    * The offset of the baseline (or line height) of all item labels (as a percent of the label's height).
    */
-  get itemLabelBaselineOffset () {
+  get itemLabelBaselineOffset() {
     return this._itemLabelBaselineOffset;
   }
   set itemLabelBaselineOffset(val) {
@@ -723,7 +723,7 @@ export class Wheel {
    * Overridden by `Item.labelColor`.
    * Example: `['#fff','#000']`.
    */
-  get itemLabelColors () {
+  get itemLabelColors() {
     return this._itemLabelColors;
   }
   set itemLabelColors(val) {
@@ -740,7 +740,7 @@ export class Wheel {
    * Overridden by `Item.labelFont`.
    * Example: `'sans-serif'`.
    */
-  get itemLabelFont () {
+  get itemLabelFont() {
     return this._itemLabelFont;
   }
   set itemLabelFont(val) {
@@ -755,7 +755,7 @@ export class Wheel {
   /**
    * The maximum font size (in pixels) for all item labels.
    */
-  get itemLabelFontSizeMax () {
+  get itemLabelFontSizeMax() {
     return this._itemLabelFontSizeMax;
   }
   set itemLabelFontSizeMax(val) {
@@ -771,7 +771,7 @@ export class Wheel {
    * The point along the radius (as a percent, starting from the center of the wheel)
    * to start drawing all item labels.
    */
-  get itemLabelRadius () {
+  get itemLabelRadius() {
     return this._itemLabelRadius;
   }
   set itemLabelRadius(val) {
@@ -787,7 +787,7 @@ export class Wheel {
    * The point along the radius (as a percent, starting from the center of the wheel)
    * to calculate the maximum font size for all item labels.
    */
-  get itemLabelRadiusMax () {
+  get itemLabelRadiusMax() {
     return this._itemLabelRadiusMax;
   }
   set itemLabelRadiusMax(val) {
@@ -803,7 +803,7 @@ export class Wheel {
    * The rotation of all item labels.
    * Use this to flip the labels `180°` in combination with `itemLabelAlign`.
    */
-  get itemLabelRotation () {
+  get itemLabelRotation() {
     return this._itemLabelRotation;
   }
   set itemLabelRotation(val) {
@@ -818,7 +818,7 @@ export class Wheel {
   /**
    * The items to show on the wheel.
    */
-  get items () {
+  get items() {
     return this._items;
   }
   set items(val) {
@@ -838,7 +838,7 @@ export class Wheel {
           weight: item.weight,
         }));
       }
-        
+
     } else {
       this._items = Defaults.wheel.items;
     }
@@ -850,7 +850,7 @@ export class Wheel {
   /**
    * The color of the lines between the items.
    */
-  get lineColor () {
+  get lineColor() {
     return this._lineColor;
   }
   set lineColor(val) {
@@ -865,7 +865,7 @@ export class Wheel {
   /**
    * The width (in pixels) of the lines between the items.
    */
-  get lineWidth () {
+  get lineWidth() {
     return this._lineWidth;
   }
   set lineWidth(val) {
@@ -880,7 +880,7 @@ export class Wheel {
   /**
    * The radius of the wheel (as a percent of the container's smallest dimension).
    */
-  get radius () {
+  get radius() {
     return this._radius;
   }
   set radius(val) {
@@ -897,7 +897,7 @@ export class Wheel {
    * `0` is north.
    * The first item will be drawn clockwise from this point.
    */
-  get rotation () {
+  get rotation() {
     return this._rotation;
   }
   set rotation(val) {
@@ -913,7 +913,7 @@ export class Wheel {
   /**
    * How much to reduce `rotationSpeed` by every second.
    */
-  get rotationResistance () {
+  get rotationResistance() {
     return this._rotationResistance;
   }
   set rotationResistance(val) {
@@ -929,7 +929,7 @@ export class Wheel {
    * By default this property is null, meaning the pixel ratio is automatically determined using `window.devicePixelRatio`.
    * However you could manually adjust this to improve performance.
    */
-   get pixelRatio () {
+  get pixelRatio() {
     return this._pixelRatio;
   }
   set pixelRatio(val) {
@@ -946,7 +946,7 @@ export class Wheel {
    * Any number other than 0 will spin the wheel.
    * A positive number will spin clockwise, a negative number will spin antiClockwise.
    */
-  get rotationSpeed () {
+  get rotationSpeed() {
     return this._rotationSpeed;
   }
   set rotationSpeed(val) {
@@ -972,7 +972,7 @@ export class Wheel {
    * The maximum value for `rotationSpeed`.
    * The wheel will not spin faster than this value.
    */
-  get rotationSpeedMax () {
+  get rotationSpeedMax() {
     return this._rotationSpeedMax;
   }
   set rotationSpeedMax(val) {
@@ -986,7 +986,7 @@ export class Wheel {
   /**
    * The offset of the wheel relative to it's center (as a percent of the wheel's diameter).
    */
-  get offset () {
+  get offset() {
     return this._offset;
   }
   set offset(val) {
@@ -1001,7 +1001,7 @@ export class Wheel {
   /**
    * The callback for the `onCurrentIndexChange` event.
    */
-  get onCurrentIndexChange () {
+  get onCurrentIndexChange() {
     return this._onCurrentIndexChange;
   }
   set onCurrentIndexChange(val) {
@@ -1015,7 +1015,7 @@ export class Wheel {
   /**
    * The callback for the `onRest` event.
    */
-  get onRest () {
+  get onRest() {
     return this._onRest;
   }
   set onRest(val) {
@@ -1029,7 +1029,7 @@ export class Wheel {
   /**
    * The callback for the `onSpin` event.
    */
-  get onSpin () {
+  get onSpin() {
     return this._onSpin;
   }
   set onSpin(val) {
@@ -1045,7 +1045,7 @@ export class Wheel {
    * It will be automatically scaled to fit the container's smallest dimension.
    * Use this to draw decorations around the wheel, such as a stand or pointer.
    */
-  get overlayImage () {
+  get overlayImage() {
     return this._overlayImage;
   }
   set overlayImage(val) {
@@ -1062,7 +1062,7 @@ export class Wheel {
   /**
    * The angle of the Pointer which is used to determine the `currentIndex` (or the "winning" item).
    */
-  get pointerAngle () {
+  get pointerAngle() {
     return this._pointerAngle;
   }
   set pointerAngle(val) {
@@ -1076,7 +1076,7 @@ export class Wheel {
   /**
    * Enter the drag state.
    */
-  dragStart(point = {x:0, y:0}) {
+  dragStart(point = { x: 0, y: 0 }) {
 
     const p = util.translateXYToElement(point, this.canvas, this.getActualPixelRatio());
     const a = -this.getAngleFromCenter(p);
@@ -1091,14 +1091,14 @@ export class Wheel {
       distance: 0,
       x: p.x,
       y: p.y,
-      now:performance.now(),
+      now: performance.now(),
     }];
 
     this.refreshCursor();
 
   }
 
-  dragMove(point = {x:0, y:0}) {
+  dragMove(point = { x: 0, y: 0 }) {
 
     const p = util.translateXYToElement(point, this.canvas, this.getActualPixelRatio());
     const a = this.getAngleFromCenter(p);
@@ -1111,7 +1111,7 @@ export class Wheel {
       distance: angleSinceLastMove,
       x: p.x,
       y: p.y,
-      now:performance.now(),
+      now: performance.now(),
     });
 
     // Retain max 40 events when debugging.
@@ -1153,7 +1153,7 @@ export class Wheel {
 
     this.rotationSpeed = dragDistance * (1000 / Constants.dragCapturePeriod);
 
-    this.raiseEvent_onSpin({dragEvents: this.dragEvents});
+    this.raiseEvent_onSpin({ dragEvents: this.dragEvents });
 
   }
 
@@ -1170,8 +1170,6 @@ export class Wheel {
   }
 
   raiseEvent_onRest(data = {}) {
-    console.log('Peter',this.onRest)
-    
     this.onRest?.({
       event: 'rest',
       currentIndex: this._currentIndex,
