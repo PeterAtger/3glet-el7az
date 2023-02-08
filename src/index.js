@@ -27,10 +27,16 @@ function init() {
       const { currentIndex } = e;
 
       if (currentIndex >= 0) {
-        const { label: name, answer } = props[0].items[currentIndex]
+        const { label: name, id: imageId } = props[0].items[currentIndex]
         modal.classList.toggle('hidden');
         message.innerText = `السوأل  المطلوب`
         messageContent.innerText = name
+
+        document.getElementById('closeModal').onclick = (e) => {
+          document.getElementById('modal').classList.toggle('hidden')
+          console.log('Peter',imageId)
+          document.getElementById(`img-${imageId}`).classList.toggle('hidden')
+        };
 
 
         items.splice(currentIndex, 1)
@@ -40,9 +46,6 @@ function init() {
     }
   }
 
-  document.getElementById('closeModal').onclick = (e) => {
-    document.getElementById('modal').classList.toggle('hidden')
-  };
 
   wheel.init(currentProps);
 
