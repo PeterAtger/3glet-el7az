@@ -34,7 +34,6 @@ function init() {
 
         document.getElementById('closeModal').onclick = (e) => {
           document.getElementById('modal').classList.toggle('hidden')
-          console.log('Peter',imageId)
           document.getElementById(`img-${imageId}`).classList.toggle('hidden')
         };
 
